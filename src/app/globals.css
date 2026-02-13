@@ -1,0 +1,9 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+/* If you have a tailwind.config.js, you must explicitly link it in v4 */
+@config "../../tailwind.config.js"; 
+
+body {
+  font-family: 'Inter', sans-serif;
+}
