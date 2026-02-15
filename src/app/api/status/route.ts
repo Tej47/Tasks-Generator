@@ -30,8 +30,9 @@ export async function GET() {
     status.llm = "error";
   }
 
-  return NextResponse.json(status, {
-    status:
-      status.database === "ok" && status.llm === "ok" ? 200 : 500,
-  });
+  // Always return 200 if the health check route executed successfully.
+  // Individual service failures (DB/LLM) are reflected inside the JSON body,
+  // while 500 will only occur if the route itself crashes unexpectedly.
+  return NextResponse.json(status, { status: 200 });
+
 }
